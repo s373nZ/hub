@@ -21,6 +21,10 @@ type BackendTypeDisplayConfig = {
 const backendTypeDisplayConfigs: Partial<
   Record<BackendType, BackendTypeDisplayConfig>
 > = {
+  CLN: {
+    title: "CLN",
+    icon: <LDKIcon />,
+  },
   LDK: {
     title: "LDK",
     icon: <LDKIcon />,

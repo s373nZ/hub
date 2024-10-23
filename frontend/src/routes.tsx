@@ -53,6 +53,7 @@ import { SetupNode } from "src/screens/setup/SetupNode";
 import { SetupPassword } from "src/screens/setup/SetupPassword";
 import { BreezForm } from "src/screens/setup/node/BreezForm";
 import { CashuForm } from "src/screens/setup/node/CashuForm";
+import { CLNForm } from "src/screens/setup/node/CLNForm";
 import { GreenlightForm } from "src/screens/setup/node/GreenlightForm";
 import { LDKForm } from "src/screens/setup/node/LDKForm";
 import { LNDForm } from "src/screens/setup/node/LNDForm";
@@ -380,6 +381,10 @@ const routes = [
               {
                 path: "cashu",
                 element: <CashuForm />,
+              },
+              {
+                path: "cln",
+                element: <CLNForm />,
               },
               {
                 path: "phoenix",

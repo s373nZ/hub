@@ -842,6 +842,28 @@ func (api *api) Setup(ctx context.Context, setupRequest *SetupRequest) error {
 		}
 	}
 
+	if setupRequest.CLNAddress != "" {
+		err = api.cfg.SetUpdate("CLNAddress", setupRequest.CLNAddress, setupRequest.UnlockPassword)
+		if err != nil {
+			logger.Logger.WithError(err).Error("Failed to save cln address")
+			return err
+		}
+	}
+	if setupRequest.CLNCertHex != "" {
+		err = api.cfg.SetUpdate("CLNCertHex", setupRequest.CLNCertHex, setupRequest.UnlockPassword)
+		if err != nil {
+			logger.Logger.WithError(err).Error("Failed to save cln cert hex")
+			return err
+		}
+	}
+	if setupRequest.CLNRuneHex != "" {
+		err = api.cfg.SetUpdate("CLNRuneHex", setupRequest.CLNRuneHex, setupRequest.UnlockPassword)
+		if err != nil {
+			logger.Logger.WithError(err).Error("Failed to save cln rune hex")
+			return err
+		}
+	}
+
 	return nil
 }
 

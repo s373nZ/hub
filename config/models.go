@@ -7,6 +7,7 @@ const (
 	BreezBackendType      = "BREEZ"
 	PhoenixBackendType    = "PHOENIX"
 	CashuBackendType      = "CASHU"
+	CLNBackendType        = "CLN"
 )
 
 const (

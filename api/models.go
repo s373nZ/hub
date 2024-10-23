@@ -130,6 +130,12 @@ type SetupRequest struct {
 	LNDCertHex      string `json:"lndCertHex"`
 	LNDMacaroonHex  string `json:"lndMacaroonHex"`
 
+	// CLN fields
+	CLNAddress      string `json:"clnAddress"`
+	CLNCertFile     string `json:"clnCertFile"`
+	CLNCertHex      string `json:"clnCertHex"`
+	CLNRuneHex      string `json:"clnRuneHex"`
+
 	// Phoenixd fields
 	PhoenixdAddress       string `json:"phoenixdAddress"`
 	PhoenixdAuthorization string `json:"phoenixdAuthorization"`

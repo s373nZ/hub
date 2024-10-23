@@ -8,7 +8,6 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
-//go:embed dist
 var embeddedReactAssets embed.FS
 
 func RegisterHandlers(e *echo.Echo) {

@@ -17,6 +17,7 @@ import (
 	"github.com/getAlby/hub/lnclient"
 	"github.com/getAlby/hub/lnclient/breez"
 	"github.com/getAlby/hub/lnclient/cashu"
+	"github.com/getAlby/hub/lnclient/cln"
 	"github.com/getAlby/hub/lnclient/greenlight"
 	"github.com/getAlby/hub/lnclient/ldk"
 	"github.com/getAlby/hub/lnclient/lnd"
@@ -206,6 +207,14 @@ func (svc *service) launchLNBackend(ctx context.Context, encryptionKey string) e
 		cashuWorkdir := path.Join(svc.cfg.GetEnv().Workdir, "cashu")
 
 		lnClient, err = cashu.NewCashuService(cashuWorkdir, cashuMintUrl)
+
+	case config.CLNBackendType:
+		CLNAddress, _ := svc.cfg.Get("CLNAddress", encryptionKey)
+		CLNCertHex, _ := svc.cfg.Get("CLNCertHex", encryptionKey)
+		CLNMacaroonHex, _ := svc.cfg.Get("CLNMacaroonHex", encryptionKey)
+
+		lnClient, err = cln.NewCLNService(ctx, svc.eventPublisher, CLNAddress, CLNCertHex, CLNMacaroonHex)
+
 	default:
 		logger.Logger.WithField("backend_type", lnBackend).Error("Unsupported LNBackendType")
 		return fmt.Errorf("unsupported backend type: %s", lnBackend)
